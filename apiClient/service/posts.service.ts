@@ -1,18 +1,28 @@
-import { ApiMochaCient } from '../rest.mocha.client';
+import jsonRequest from "./../json.request";
 
-class PostsService extends ApiMochaCient {
+class PostsService {
     endpoint: string = '/posts';
 
     async getAllPosts() {
-        return await this.getMethod(this.endpoint, new Map(), new Map());
+        return await jsonRequest
+        .method('GET')
+        .endpoint(this.endpoint)
+        .sendRequest();
     }
 
     async getPostById(postId: number) {
-        return await this.getMethod(`${this.endpoint}/${postId}`, new Map(), new Map());
+        return await jsonRequest
+        .method('GET')
+        .endpoint(`${this.endpoint}/${postId}`)
+        .sendRequest();
     }
 
     async addPostWithBody(postBody: Object) {
-        return await this.postMethod(this.endpoint, new Map(), postBody);
+        return await jsonRequest
+        .method("POST")
+        .endpoint(this.endpoint)
+        .body(postBody)
+        .sendRequest();
     }
 }
 export default new PostsService();
