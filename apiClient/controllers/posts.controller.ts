@@ -1,12 +1,14 @@
-import jsonRequest from "./../json.request";
+import jsonRequest from "../json.request";
+import { BaseController } from "./base.contorller";
 
-class PostsService {
+ export class PostsController extends BaseController {
     endpoint: string = '/posts';
 
     async getAllPosts() {
         return await jsonRequest
         .method('GET')
         .endpoint(this.endpoint)
+        .headers(new Map().set("token", this.params.token))
         .sendRequest();
     }
 
@@ -14,6 +16,7 @@ class PostsService {
         return await jsonRequest
         .method('GET')
         .endpoint(`${this.endpoint}/${postId}`)
+        .headers(new Map().set("token", this.params.token))
         .sendRequest();
     }
 
@@ -21,8 +24,8 @@ class PostsService {
         return await jsonRequest
         .method("POST")
         .endpoint(this.endpoint)
+        .headers(new Map().set("token", this.params.token))
         .body(postBody)
         .sendRequest();
     }
 }
-export default new PostsService();

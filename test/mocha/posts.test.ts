@@ -1,13 +1,13 @@
-import PostsService from '../../apiClient/service/posts.service';
 import { expect } from 'chai';
 import { validate } from "jsonschema";
 import postSchema from "./../../jsonSchema/postSchema.json";
 import postBody from "./../../data/fakeBody/postBody.json";
+import { ApiClient } from '../../apiClient/api.cient';
 
 describe("Posts tests", function () {
 
     it("Get all posts", async function name() {
-        const { status, data } = await PostsService.getAllPosts();
+        const { status, data } = await ApiClient.unautorized().posts.getAllPosts();
 
         const dataArr: [] = data;
 
@@ -16,14 +16,14 @@ describe("Posts tests", function () {
     })
 
     it("Get post by id", async function name() {
-        const { status, data } = await PostsService.getPostById(1);
+        const { status, data } = await ApiClient.unautorized().posts.getPostById(1);
 
         expect(status).to.equal(200);
         expect(validate(data, postSchema).valid).to.be.true;
     })
 
     it("Add post", async function name() {
-        const { status, data } = await PostsService.addPostWithBody(postBody);
+        const { status, data } = await ApiClient.unautorized().posts.addPostWithBody(postBody);
 
         expect(status).to.equal(201);
         expect(validate(data, postBody).valid).to.be.true;

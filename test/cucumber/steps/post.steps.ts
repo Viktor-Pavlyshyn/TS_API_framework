@@ -1,4 +1,4 @@
-import PostsService from './../../../apiClient/service/posts.service';
+import PostsService from '../../../apiClient/controllers/posts.controller';
 import { expect } from 'chai';
 import { validate } from "jsonschema";
 import postSchema from "./../../../jsonSchema/postSchema.json";
