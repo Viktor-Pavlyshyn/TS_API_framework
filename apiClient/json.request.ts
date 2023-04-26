@@ -8,6 +8,7 @@ class JsonRequest {
         baseURL: Urls.baseUrl,
         timeout: 2000,
         responseType: 'json',
+        withCredentials: true,
     };
 
     public endpoint(endpoint: string): this {

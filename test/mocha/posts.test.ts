@@ -22,7 +22,7 @@ describe("Posts tests", function () {
         expect(validate(data, postSchema).valid).to.be.true;
     })
 
-    it("Add post", async function name() {
+    it.only("Add post", async function name() {
         const { status, data } = await ApiClient.unautorized().posts.addPostWithBody(postBody);
 
         expect(status).to.equal(201);

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register ./test/mocha/*.test.ts",
+    "test": "mocha",
     "test:cucumber": "tsc &&cucumber-js"
   },
   "repository": {
@@ -18,21 +18,23 @@
   },
   "homepage": "https://github.com/Viktor-Pavlyshyn/TS_API_framework#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^9.1.0",
+    "@cucumber/cucumber": "^8.9.1",
     "@types/chai": "^4.3.4",
     "@types/cucumber": "^7.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.15.11",
     "@types/tough-cookie": "^4.0.2",
+    "allure-mocha": "^2.0.0-beta.9",
     "axios": "^1.3.4",
     "chai": "^4.3.7",
     "cucumber": "^6.0.7",
     "jsonschema": "^1.4.1",
     "mocha": "^10.2.0",
+    "mocha-multi-reporters": "^1.5.1",
     "tough-cookie": "^4.1.2",
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "http-req-builder": "^1.4.1"
+    "mocha-allure-reporter": "^1.4.0"
   }
 }
