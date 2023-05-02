@@ -1,4 +1,4 @@
-import PostsService from '../../../apiClient/controllers/posts.controller';
+import { ApiClient } from '../../../apiClient/api.cient';
 import { expect } from 'chai';
 import { validate } from "jsonschema";
 import postSchema from "./../../../jsonSchema/postSchema.json";
@@ -9,7 +9,7 @@ let response: any;
 
 Given('User gets all posts', async function () {
 
-    response = await PostsService.getAllPosts();
+    response = await ApiClient.unautorized().posts.getAllPosts();
 });
 
 Then('User recives status code {int}', async function (statusCode: number) {
@@ -26,7 +26,7 @@ Then('User recives more then {int} posts grom Get posts response', async functio
 
 Then('User gets post by id {int}', async function (postId: number) {
 
-    response = await PostsService.getPostById(postId);
+    response = await ApiClient.unautorized().posts.getPostById(postId);
 });
 
 Then('User gets valid jsonSchema for Get posts.id response', async function () {
@@ -36,7 +36,7 @@ Then('User gets valid jsonSchema for Get posts.id response', async function () {
 
 Given('User adds new post', async function () {
 
-    response = await PostsService.addPostWithBody(postBody);
+    response = await ApiClient.unautorized().posts.addPostWithBody(postBody);
 });
 
 Then('User gets valid jsonSchema for Post posts.id response', async function () {

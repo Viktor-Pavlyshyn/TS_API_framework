@@ -1,11 +1,12 @@
 import type { Method } from "axios";
 import axios, { AxiosInstance } from 'axios';
-import Urls from '../data/Urls';
+import dotenv from 'dotenv';
+dotenv.config({path: `config/.env.${process.env.NODE_ENV}`})
 
 class JsonRequest {
 
     protected requestConfig: any = {
-        baseURL: Urls.baseUrl,
+        baseURL: process.env.BASE_URL,
         timeout: 2000,
         responseType: 'json',
         withCredentials: true,
@@ -61,5 +62,6 @@ class JsonRequest {
             return config;
         });
     }
+    
 }
 export default new JsonRequest();
