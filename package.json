@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "test:cucumber": "tsc &&cucumber-js",
-    "test:cucumber-smoke": "tsc &&cucumber-js --tags @smoke"
+    "test:cucumber-smoke": "tsc &&cucumber-js --tags @smoke",
+    "report-allure": "allure generate && allure serve"
   },
   "repository": {
     "type": "git",
